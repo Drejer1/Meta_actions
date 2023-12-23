@@ -23,8 +23,8 @@ SUITE = [ "gripper_original", ]
 ENV = DEISSlurmEnvironment(partition="naples",email="")
 
 # Use path to your Fast Downward repository.
-REPO = '/nfs/home/cs.aau.dk/sdja19/downward'
-BENCHMARKS_DIR = '/nfs/home/cs.aau.dk/sdja19/Meta_actions/Exam_project/'
+REPO = '/nfs/home/student.aau.dk/sdja19/downward'
+BENCHMARKS_DIR = '/nfs/home/student.aau.dk/sdja19/Meta_actions/Exam_project'
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
 REVISION_CACHE = None
 REV = "main"
