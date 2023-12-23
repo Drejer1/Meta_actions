@@ -1,5 +1,6 @@
 from downward.experiment import FastDownwardExperiment
 from lab.environments import SlurmEnvironment
+from downward.reports.absolute import AbsoluteReport
 
 import os
 import os.path
