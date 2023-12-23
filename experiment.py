@@ -1,0 +1,75 @@
+from downward.experiment import FastDownwardExperiment
+from lab.environments import SlurmEnvironment
+
+import os
+import os.path
+import platform
+
+class DEISSlurmEnvironment(SlurmEnvironment):
+    """Environment for DEIS cluster."""
+
+    DEFAULT_PARTITION = "naples" # Alternatives are dhabi or rome
+    DEFAULT_QOS = "normal"
+    DEFAULT_MEMORY_PER_CPU = "9000M"
+    MAX_TASKS = 2000 - 1  # see slurm.conf
+    NICE_VALUE = 0
+
+    DEFAULT_EXPORT = []
+
+
+# List of domains to run your experiments on REPLACE
+SUITE = [ "agricola", "airport", "barman", "blocksworld", "childsnack", "data-network", "depots", "driverlog", "elevators", "floortile", "freecell", "ged", "grid", "gripper", "hiking", "logistics", "miconic", "mprime", "nomystery", "openstacks", "organic-synthesis-split", "parcprinter", "parking", "pathways", "pegsol", "pipesworld-notankage", "pipesworld-tankage", "rovers", "satellite", "scanalyzer", "snake", "sokoban", "storage", "termes", "tetris", "thoughtful", "tidybot", "tpp", "transport", "visitall", "woodworking", "zenotravel", ]
+
+ENV = DEISSlurmEnvironment(partition="naples",email="")
+
+# Use path to your Fast Downward repository.
+REPO = '/nfs/home/cs.aau.dk/sdja19/FastDownward'
+BENCHMARKS_DIR = '/nfs/home/cs.aau.dk/sdja19/Meta_actions'
+# If REVISION_CACHE is None, the default ./data/revision-cache is used.
+REVISION_CACHE = None
+REV = "main"
+
+exp = FastDownwardExperiment(environment=ENV, revision_cache=REVISION_CACHE)
+
+# Add built-in parsers to the experiment. These are the default for Fast Downward
+exp.add_parser(exp.EXITCODE_PARSER)
+exp.add_parser(exp.TRANSLATOR_PARSER)
+exp.add_parser(exp.SINGLE_SEARCH_PARSER)
+exp.add_parser(exp.PLANNER_PARSER)
+
+exp.add_suite(BENCHMARKS_DIR, SUITE)
+sas_driver_options = [
+    "--overall-time-limit",
+    "5m",
+    "--overall-memory-limit",
+    "4G",
+    "--alias",
+    "lama-first",
+]
+
+
+exp.add_algorithm(
+    "FastDownward",
+    REPO,
+    REV,
+    [], # REPLACE configuration
+    build_options=["release", '-j1'],
+    driver_options=sas_driver_options,
+    )
+
+# Add step that writes experiment files to disk.
+exp.add_step("build", exp.build)
+
+# Add step that executes all runs.
+exp.add_step("start", exp.start_runs)
+
+# Add parse step
+exp.add_step("parse", exp.parse)
+
+# Look at parsers and/or properties files to see what other attributes are there
+exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time']), outfile="report.html")
+
+# For Scatter plots look at https://lab.readthedocs.io/en/latest/downward.reports.html#downward.reports.scatter.ScatterPlotReport
+
+# Parse the commandline and show or run experiment steps.
+exp.run_steps()
