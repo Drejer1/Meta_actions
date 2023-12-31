@@ -22,7 +22,7 @@ class DEISSlurmEnvironment(SlurmEnvironment):
 # List of domains to run your experiments on REPLACE
 SUITE = ["gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2", "barman_original",
          "barman_all_actions", "barman_working_set1", "barman_working_set2", "rovers_original", "rovers_all_actions",
-         "rovers_working_set1", "logistics_original", "logistics_all_actions" "logistics_working_set1", ]
+         "rovers_working_set1", "logistics_original", "logistics_all_actions", "logistics_working_set1", ]
 
 ENV = DEISSlurmEnvironment(partition="naples", email="")
 
