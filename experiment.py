@@ -6,10 +6,11 @@ import os
 import os.path
 import platform
 
+
 class DEISSlurmEnvironment(SlurmEnvironment):
     """Environment for DEIS cluster."""
 
-    DEFAULT_PARTITION = "naples" # Alternatives are dhabi or rome
+    DEFAULT_PARTITION = "naples"  # Alternatives are dhabi or rome
     DEFAULT_QOS = "normal"
     DEFAULT_MEMORY_PER_CPU = "9000M"
     MAX_TASKS = 2000 - 1  # see slurm.conf
@@ -19,9 +20,11 @@ class DEISSlurmEnvironment(SlurmEnvironment):
 
 
 # List of domains to run your experiments on REPLACE
-SUITE = [ "gripper_original", ]
+SUITE = ["gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2", "barman_original",
+         "barman_all_actions", "barman_working_set1", "barman_working_set2", "rovers_original", "rovers_all_actions",
+         "rovers_working_set1", "logistics_original", "logistics_all_actions" "logistics_working_set1", ]
 
-ENV = DEISSlurmEnvironment(partition="naples",email="")
+ENV = DEISSlurmEnvironment(partition="naples", email="")
 
 # Use path to your Fast Downward repository.
 REPO = '/nfs/home/student.aau.dk/sdja19/downward'
@@ -48,15 +51,14 @@ sas_driver_options = [
     "lama-first",
 ]
 
-
 exp.add_algorithm(
     "FastDownward",
     REPO,
     REV,
-    [], # REPLACE configuration
+    [],  # REPLACE configuration
     build_options=["release", '-j1'],
     driver_options=sas_driver_options,
-    )
+)
 
 # Add step that writes experiment files to disk.
 exp.add_step("build", exp.build)
@@ -68,7 +70,8 @@ exp.add_step("start", exp.start_runs)
 exp.add_step("parse", exp.parse)
 
 # Look at parsers and/or properties files to see what other attributes are there
-exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time']), outfile="report.html")
+exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time']),
+               outfile="report.html")
 
 # For Scatter plots look at https://lab.readthedocs.io/en/latest/downward.reports.html#downward.reports.scatter.ScatterPlotReport
 
