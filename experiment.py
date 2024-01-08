@@ -69,6 +69,8 @@ exp.add_step("start", exp.start_runs)
 # Add parse step
 exp.add_step("parse", exp.parse)
 
+exp.add_fetcher(name="fetch")
+
 # Look at parsers and/or properties files to see what other attributes are there
 exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time']),
                outfile="report.html")
