@@ -1,5 +1,5 @@
 (define (domain barman)
-  (:requirements :strips :typing :action-costs :numeric-fluents)
+  (:requirements :strips :typing :action-costs)
   (:types hand level beverage dispenser container - object
   	  ingredient cocktail - beverage
           shot shaker - container)
