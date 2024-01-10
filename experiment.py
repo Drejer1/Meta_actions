@@ -42,6 +42,7 @@ exp.add_parser(exp.SINGLE_SEARCH_PARSER)
 exp.add_parser(exp.PLANNER_PARSER)
 
 exp.add_suite(BENCHMARKS_DIR, SUITE)
+"""
 sas_driver_options = [
     "--overall-time-limit",
     "5m",
@@ -49,6 +50,16 @@ sas_driver_options = [
     "4G",
     "--alias",
     "lama-first",
+]"""
+sas_driver_options = [
+    "--overall-time-limit",
+    "5m",
+    "--overall-memory-limit",
+    "4G",
+    "--evaluator",
+    "hff=ff()"
+    "--search",
+    "lazy_greedy([hff], preferred=[hff])",
 ]
 
 exp.add_algorithm(
