@@ -46,7 +46,7 @@ exp.add_suite(BENCHMARKS_DIR, SUITE)
 
 sas_driver_options1 = [
     "--overall-time-limit",
-    "5m",
+    "10m",
     "--overall-memory-limit",
     "4G",
     "--alias",
@@ -55,7 +55,7 @@ sas_driver_options1 = [
 
 sas_driver_options2 = [
     "--overall-time-limit",
-    "5m",
+    "10m",
     "--overall-memory-limit",
     "4G",
 ]
