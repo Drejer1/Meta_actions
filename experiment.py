@@ -58,7 +58,6 @@ sas_driver_options2 = [
     "5m",
     "--overall-memory-limit",
     "4G",
-    "--evaluator",
 ]
 exp.add_algorithm(
     "FastDownward-lama-first",
@@ -72,7 +71,7 @@ exp.add_algorithm(
     "FastDownward-lazy_greedy",
     REPO,
     REV,
-    ["hff=ff()", "--search", "lazy_greedy([hff], preferred=[hff])"],  # REPLACE configuration
+    ["--evaluator", "hff=ff()", "--search", "lazy_greedy([hff], preferred=[hff])"],  # REPLACE configuration
     build_options=["release", '-j1'],
     driver_options=sas_driver_options2,
 )
