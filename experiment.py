@@ -41,34 +41,40 @@ exp.add_parser(exp.TRANSLATOR_PARSER)
 exp.add_parser(exp.SINGLE_SEARCH_PARSER)
 exp.add_parser(exp.PLANNER_PARSER)
 
+
 exp.add_suite(BENCHMARKS_DIR, SUITE)
-"""
-sas_driver_options = [
+
+sas_driver_options1 = [
     "--overall-time-limit",
     "5m",
     "--overall-memory-limit",
     "4G",
     "--alias",
     "lama-first",
-]"""
-sas_driver_options = [
+]
+
+sas_driver_options2 = [
     "--overall-time-limit",
     "5m",
     "--overall-memory-limit",
     "4G",
     "--evaluator",
-    "hff=ff()"
-    "--search",
-    "lazy_greedy([hff], preferred=[hff])",
 ]
-
 exp.add_algorithm(
-    "FastDownward",
+    "FastDownward-lama-first",
     REPO,
     REV,
     [],  # REPLACE configuration
     build_options=["release", '-j1'],
-    driver_options=sas_driver_options,
+    driver_options=sas_driver_options1,
+)
+exp.add_algorithm(
+    "FastDownward-lazy_greedy",
+    REPO,
+    REV,
+    ["hff=ff()", "--search", "lazy_greedy([hff], preferred=[hff])"],  # REPLACE configuration
+    build_options=["release", '-j1'],
+    driver_options=sas_driver_options2,
 )
 
 # Add step that writes experiment files to disk.
@@ -83,7 +89,7 @@ exp.add_step("parse", exp.parse)
 exp.add_fetcher(name="fetch")
 
 # Look at parsers and/or properties files to see what other attributes are there
-exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time']),
+exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time', 'planner_time',]),
                outfile="report.html")
 
 # For Scatter plots look at https://lab.readthedocs.io/en/latest/downward.reports.html#downward.reports.scatter.ScatterPlotReport
