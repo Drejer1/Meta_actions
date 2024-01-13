@@ -52,13 +52,14 @@ sas_driver_options1 = [
     "--alias",
     "lama-first",
 ]
-
+"""
 sas_driver_options2 = [
     "--overall-time-limit",
     "10m",
     "--overall-memory-limit",
     "4G",
-]
+]"""
+
 exp.add_algorithm(
     "FastDownward-lama-first",
     REPO,
@@ -67,6 +68,8 @@ exp.add_algorithm(
     build_options=["release", '-j1'],
     driver_options=sas_driver_options1,
 )
+
+"""
 exp.add_algorithm(
     "FastDownward-lazy_greedy",
     REPO,
@@ -75,7 +78,7 @@ exp.add_algorithm(
     build_options=["release", '-j1'],
     driver_options=sas_driver_options2,
 )
-
+"""
 # Add step that writes experiment files to disk.
 exp.add_step("build", exp.build)
 
