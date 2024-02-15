@@ -45,9 +45,9 @@ exp.add_suite(BENCHMARKS_DIR, SUITE)
 
 
 def change_format(run):
-    name = run["algorithm"]
+    name = run["FastDownward-lama-first"]
     paper_names = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
-    run["algorithm"] = paper_names[name]
+    run["FastDownward-lama-first"] = paper_names[name]
     return run
 
 
