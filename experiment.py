@@ -44,6 +44,13 @@ exp.add_parser(exp.PLANNER_PARSER)
 
 exp.add_suite(BENCHMARKS_DIR, SUITE)
 
+
+def change_format(run):
+    name = run["algorithm"]
+    paper_names = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
+    run["algorithm"] = paper_names[name]
+    return run
+
 sas_driver_options1 = [
     "--overall-time-limit",
     "10m",
@@ -92,7 +99,7 @@ exp.add_fetcher(name="fetch")
 
 # Look at parsers and/or properties files to see what other attributes are there
 exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time', 'planner_time','translator_operators','translator_time_done',]),
-               outfile="report.html")
+               outfile="report.html",filter=change_format)
 
 # For Scatter plots look at https://lab.readthedocs.io/en/latest/downward.reports.html#downward.reports.scatter.ScatterPlotReport
 
