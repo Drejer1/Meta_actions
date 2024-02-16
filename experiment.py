@@ -45,11 +45,11 @@ exp.add_parser(exp.PLANNER_PARSER)
 exp.add_suite(BENCHMARKS_DIR, SUITE)
 
 
-def change_format(run):
-    name = run["algorithm"]
-    paper_names = {"lama11": "LAMA 2011", "fdss_sat1": "FDSS 1"}
-    run["algorithm"] = paper_names[name]
-    return run
+
+
+
+
+
 
 sas_driver_options1 = [
     "--overall-time-limit",
