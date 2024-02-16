@@ -46,12 +46,12 @@ exp.add_suite(BENCHMARKS_DIR, SUITE)
 
 
 def change_format(run):
-    name = run["algorithm"]
-    #nameD = run["domain"]
+    nameA = run["algorithm"]
+    nameD = run["domain"]
     #domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
-    paper_names = {"FastDownward-lama-first": "FLf"}
-    run["algorithm"] = paper_names[name]
-    #run["domain"] = domain_names[nameD]
+    #paper_names = {"FastDownward-lama-first": "FLf"}
+    run["algorithm"] = nameD
+    run["domain"] = nameA
     return run
 
 sas_driver_options1 = [
