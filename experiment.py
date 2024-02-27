@@ -50,8 +50,8 @@ def change_format(run):
     nameD = run["domain"]
     domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
     paper_names = {"FastDownward-lama-first": "FLf",}
-    run["algorithm"] = nameA[paper_names]
-    run["domain"] = nameD[domain_names]
+    run["algorithm"] = nameA
+    run["domain"] = nameD
     return run
 
 sas_driver_options1 = [
