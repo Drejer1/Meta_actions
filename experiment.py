@@ -52,7 +52,7 @@ def change_format(run):
     paper_names = {"FastDownward-lama-first": "FLf","gripper_original":"ohshitwhat"}
     domaindict = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
     run["algorithm"] = nameD
-    run["domain"] = paper_names
+    run["domain"] = paper_names[nameA]
     return run
 
 sas_driver_options1 = [
