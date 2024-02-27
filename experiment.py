@@ -49,7 +49,7 @@ def change_format(run):
     nameA = run["algorithm"]
     nameD = run["domain"]
     domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
-    paper_names = {"FastDownward-lama-first": "FLf",}
+    paper_names = {"FastDownward-lama-first": "FLf","New here":"Nere aasd"}
     run["algorithm"] = paper_names[nameA]
     run["domain"] = nameD
     return run
