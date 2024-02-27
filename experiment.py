@@ -49,9 +49,10 @@ def change_format(run):
     nameA = run["algorithm"]
     nameD = run["domain"]
     domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
-    paper_names = {"FastDownward-lama-first": "FLf","New here":"Nere aasd"}
-    run["algorithm"] = paper_names[nameA]
-    run["domain"] = nameD
+    paper_names = {"FastDownward-lama-first": "FLf","gripper_original":"ohshitwhat"}
+    domaindict = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
+    run["algorithm"] = nameD
+    run["domain"] = papernames[nameA]
     return run
 
 sas_driver_options1 = [
