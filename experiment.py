@@ -55,8 +55,8 @@ def change_format(run):
     domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
     paper_names = {"FastDownward-lama-first": "FLf","gripper_original":"G_O"}
     domaindict = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
-    run["algorithm"] = domain
-    run["domain"] = config
+    run["algorithm"] = config
+    run["domain"] = domain
     return run
 
 sas_driver_options1 = [
