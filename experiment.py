@@ -48,17 +48,13 @@ exp.add_suite(BENCHMARKS_DIR, SUITE)
 def change_format(run):
     nameA = run["algorithm"]
     nameD = run["domain"]
-    gripper = nameD.split("_")[0]
-    original =nameD.split("_")[1]
-    print(type(nameA))
-    print(nameA)
-    print(type(gripper))
-    print(gripper)
+    domain = nameD.split("_", 1)[0]
+    config =nameD.split("_", 1)[1]
     domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
     paper_names = {"FastDownward-lama-first": "FLf","gripper_original":"G_O"}
     domaindict = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
-    run["algorithm"] = original
-    run["domain"] = gripper
+    run["algorithm"] = domain
+    run["domain"] = config
     return run
 
 sas_driver_options1 = [
