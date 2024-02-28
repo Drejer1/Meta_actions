@@ -50,6 +50,10 @@ def change_format(run):
     nameD = run["domain"]
     gripper = nameD.split("_")[0]
     original =nameD.split("_")[1]
+    print(type(nameA))
+    print(nameA)
+    print(type(gripper))
+    print(gripper)
     domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
     paper_names = {"FastDownward-lama-first": "FLf","gripper_original":"G_O"}
     domaindict = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
