@@ -1,4 +1,4 @@
-(define (domain prob-domain)
+(define (domain barman)
  (:requirements :strips :typing :negative-preconditions :equality :action-costs)
  (:types
     hand level beverage dispenser container - object

@@ -1,4 +1,4 @@
-(define (domain depot)
+(define (domain depots)
 (:requirements :strips :typing)
 (:types place locatable - object
 	    depot distributor - place

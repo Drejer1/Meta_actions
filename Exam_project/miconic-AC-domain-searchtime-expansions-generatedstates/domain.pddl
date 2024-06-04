@@ -1,4 +1,4 @@
-(define (domain mixed_f6_p8_u0_v0_d0_a0_n0_a0_b0_n0_f0-domain)
+(define (domain miconic)
  (:requirements :strips :typing)
  (:types passenger floor)
  (:predicates (origin ?person - passenger ?floor - floor) (destin ?person - passenger ?floor - floor) (above ?floor1 - floor ?floor2 - floor) (boarded ?person - passenger) (not_boarded ?person - passenger) (served ?person - passenger) (not_served ?person - passenger) (lift-at  ?floor - floor))

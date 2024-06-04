@@ -1,4 +1,4 @@
-(define (domain gripper_8-domain)
+(define (domain gripper-strips)
  (:requirements :strips :typing)
  (:predicates (room ?r - object) (ball ?b - object) (gripper ?g - object) (at-robby ?r - object) (at ?b - object ?r - object) (free ?g - object) (carry ?o - object ?g - object))
  (:action move

@@ -1,4 +1,4 @@
-(define (domain ztravel_1_6-domain)
+(define (domain zeno-travel)
  (:requirements :strips :typing)
  (:types aircraft person city flevel)
  (:predicates (atperson ?p - person ?c - city) (atplane ?a - aircraft ?c - city) (in ?p - person ?a - aircraft) (fuel-level ?a - aircraft ?l - flevel) (next ?l1 - flevel ?l2 - flevel))

@@ -1,4 +1,4 @@
-(define (domain logistics_c2_s2_p2_a2-domain)
+(define (domain logistics-strips)
  (:requirements :strips :typing)
  (:predicates (obj ?obj - object) (truck ?truck - object) (airplane ?airplane - object) (airport ?airport - object) (location ?loc - object) (in-city ?obj - object ?city - object) (city ?city - object) (at ?obj - object ?loc - object) (in ?obj - object ?obj2 - object))
  (:action dynamicmacro_eff_13
