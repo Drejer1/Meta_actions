@@ -20,9 +20,48 @@ class DEISSlurmEnvironment(SlurmEnvironment):
 
 
 # List of domains to run your experiments on REPLACE
-SUITE = ["gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2", "barman_original",
-         "barman_all_actions", "barman_working_set1", "barman_working_set2", "rovers_original", "rovers_all_actions",
-         "rovers_working_set1", "logistics_original", "logistics_all_actions", "logistics_working_set1", ]
+SUITE = ['barman-ac-domain-components', 'barman-ac-domain-expansions', 'barman-ac-domain-generatedstates',
+         'barman-ac-domain-makespan', 'barman-ac-domain-planlength', 'barman-ac-domain-searchtime',
+         'barman-ac-domain-totaltime',
+         'barman-random-domain-components', 'barman-random-domain-expansions',
+         'barman-random-domain-planlength-generatedstates', 'barman-random-domain-searchtime-makespan',
+         'barman-random-domain-totaltime',
+         'depots-ac-domain-components', 'depots-ac-domain-expansions', 'depots-ac-domain-generatedstates',
+         'depots-ac-domain-makespan', 'depots-ac-domain-planlength', 'depots-ac-domain-searchtime',
+         'depots-ac-domain-totaltime',
+         'depots-random-domain-components', 'depots-random-domain-expansions', 'depots-random-domain-generatedstates',
+         'depots-random-domain-makespan', 'depots-random-domain-planlength',
+         'depots-random-domain-totaltime-searchtime',
+         'grid-ac-domain-components', 'grid-ac-domain-generatedstates', 'grid-ac-domain-planlength-expansions-makespan',
+         'grid-ac-domain-searchtime', 'grid-ac-domain-totaltime',
+         'grid-random-domain-components', 'grid-random-domain-generatedstates',
+         'grid-random-domain-searchtime-planlength-expansions-makespan', 'grid-random-domain-totaltime',
+         'gripper-ac-domain-generatedstates-makespan',
+         'gripper-ac-domain-totaltime-searchtime-planlength-expansions-components',
+         'gripper-random-domain-generatedstates',
+         'gripper-random-domain-searchtime-planlength-expansions-makespan-components',
+         'gripper-random-domain-totaltime',
+         'logistics-ac-domain-expansions', 'logistics-ac-domain-generatedstates',
+         'logistics-ac-domain-planlength-makespan-components', 'logistics-ac-domain-searchtime',
+         'logistics-ac-domain-totaltime',
+         'logistics-random-domain-expansions-generatedstates', 'logistics-random-domain-planlength-makespan-components',
+         'logistics-random-domain-searchtime', 'logistics-random-domain-totaltime',
+         'miconic-ac-domain-components', 'miconic-ac-domain-planlength-makespan',
+         'miconic-ac-domain-searchtime-expansions-generatedstates', 'miconic-ac-domain-totaltime',
+         'miconic-random-domain-components', 'miconic-random-domain-expansions-generatedstates',
+         'miconic-random-domain-planlength-makespan', 'miconic-random-domain-totaltime-searchtime',
+         'satellite-ac-domain-components', 'satellite-ac-domain-expansions', 'satellite-ac-domain-planlength-makespan',
+         'satellite-ac-domain-searchtime', 'satellite-ac-domain-totaltime-generatedstates',
+         'satellite-random-domain-components', 'satellite-random-domain-expansions',
+         'satellite-random-domain-generatedstates', 'satellite-random-domain-planlength-makespan',
+         'satellite-random-domain-totaltime-searchtime',
+         'zenotravel-ac-domain-components', 'zenotravel-ac-domain-expansions', 'zenotravel-ac-domain-generatedstates',
+         'zenotravel-ac-domain-makespan', 'zenotravel-ac-domain-planlength', 'zenotravel-ac-domain-searchtime',
+         'zenotravel-ac-domain-totaltime',
+         'zenotravel-random-domain-components', 'zenotravel-random-domain-expansions',
+         'zenotravel-random-domain-generatedstates', 'zenotravel-random-domain-makespan',
+         'zenotravel-random-domain-planlength', 'zenotravel-random-domain-searchtime',
+         'zenotravel-random-domain-totaltime']
 
 ENV = DEISSlurmEnvironment(partition="naples", email="")
 
@@ -41,23 +80,18 @@ exp.add_parser(exp.TRANSLATOR_PARSER)
 exp.add_parser(exp.SINGLE_SEARCH_PARSER)
 exp.add_parser(exp.PLANNER_PARSER)
 
-
 exp.add_suite(BENCHMARKS_DIR, SUITE)
 
 
 def change_format(run):
-    nameA = run["algorithm"]
     nameD = run["domain"]
-    domain = nameD.split("_", 1)[0]
-    config =nameD.split("_", 1)[1]
-    print(domain)
-    print(config)
-    domain_names = {"gripper_original" : "GRIPPER ORIGINAL"}
-    paper_names = {"FastDownward-lama-first": "FLf","gripper_original":"G_O"}
-    domaindict = {"gripper_original", "gripper_all_actions", "gripper_working_set1", "gripper_working_set2"}
+    splitlist = nameD.split("-", 3)
+    domain = splitlist[0] + splitlist[1]
+    config = splitlist[3]
     run["algorithm"] = config
     run["domain"] = domain
     return run
+
 
 sas_driver_options1 = [
     "--overall-time-limit",
@@ -106,7 +140,9 @@ exp.add_step("parse", exp.parse)
 exp.add_fetcher(name="fetch")
 
 # Look at parsers and/or properties files to see what other attributes are there
-exp.add_report(AbsoluteReport(attributes=['coverage', 'expansions', 'search_time', 'total_time', 'planner_time','translator_operators','translator_time_done',],filter=change_format),
+exp.add_report(AbsoluteReport(
+    attributes=['coverage', 'expansions', 'search_time', 'total_time', 'planner_time', 'translator_operators',
+                'translator_time_done', ], filter=change_format),
                outfile="report.html")
 
 # For Scatter plots look at https://lab.readthedocs.io/en/latest/downward.reports.html#downward.reports.scatter.ScatterPlotReport
