@@ -63,7 +63,7 @@ sas_driver_options1 = [
     "--overall-time-limit",
     "10m",
     "--overall-memory-limit",
-    "4G",
+    "8G",
     "--alias",
     "lama-first",
 ]
