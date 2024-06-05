@@ -45,8 +45,8 @@ exp.add_suite(BENCHMARKS_DIR, SUITE)
 def change_format(run):
     nameD = run["domain"]
     splitlist = nameD.split("-", 3)
-    domain = splitlist[0]+"-"+ splitlist[1]
-    config = splitlist[3]
+    domain = splitlist[0]
+    config = splitlist[1]+ ":" +splitlist[3]
     run["algorithm"] = config
     run["domain"] = domain
     return run
