@@ -10,6 +10,10 @@
              (lifting ?x - hoist ?y - crate)
              (available ?x - hoist)
              (clear ?x - surface))
+(:action Drive
+  :parameters (?x - truck ?y - place ?z - place) 
+  :precondition (and (at ?x ?y))
+  :effect (and (not (at ?x ?y)) (at ?x ?z)))
 
 (:action Lift
   :parameters (?x - hoist ?y - crate ?z - surface ?p - place)
