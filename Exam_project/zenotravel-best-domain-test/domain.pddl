@@ -2,7 +2,7 @@
 (:requirements :typing )
 (:types aircraft person city flevel - object)
 (:predicates (atperson ?p - person ?c - city)
-             (ataircraft ?a - aircraft ?c - city)
+             (atplane ?a - aircraft ?c - city)
              (in ?p - person ?a - aircraft)
 	     (fuel-level ?a - aircraft ?l - flevel)
 	     (next ?l1 ?l2 - flevel))
