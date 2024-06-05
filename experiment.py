@@ -50,7 +50,14 @@ def change_format(run):
     run["algorithm"] = config
     run["domain"] = domain
     return run
-
+def change_formatsum(run):
+    nameD = run["domain"]
+    splitlist = nameD.split("-", 3)
+    domain = splitlist[0]
+    config = splitlist[1]
+    run["algorithm"] = config
+    run["domain"] = domain
+    return run
 
 sas_driver_options1 = [
     "--overall-time-limit",
@@ -102,8 +109,11 @@ exp.add_fetcher(name="fetch")
 exp.add_report(AbsoluteReport(
     attributes=['coverage', 'expansions', 'search_time', 'total_time', 'planner_time', 'translator_operators',
                 'translator_time_done', ], filter=change_format),
-               outfile="report.html")
-
+               outfile="reportindi.html")
+exp.add_report(AbsoluteReport(
+    attributes=['coverage', 'expansions', 'search_time', 'total_time', 'planner_time', 'translator_operators',
+                'translator_time_done', ], filter=change_formatsum),
+               outfile="reportsum.html")
 # For Scatter plots look at https://lab.readthedocs.io/en/latest/downward.reports.html#downward.reports.scatter.ScatterPlotReport
 
 # Parse the commandline and show or run experiment steps.
