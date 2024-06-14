@@ -1,4 +1,4 @@
-(define (domain grid_3_3_1_6_4-domain)
+(define (domain grid)
  (:requirements :strips :typing)
  (:predicates (conn ?x - object ?y - object) (key-shape ?k - object ?s - object) (lock-shape ?x - object ?s - object) (at ?r - object ?x - object) (at-robot ?x - object) (place ?p - object) (key ?k - object) (shape ?s - object) (locked ?x - object) (holding ?k - object) (open ?x - object) (arm-empty))
  (:action unlock

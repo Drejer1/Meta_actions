@@ -1,4 +1,4 @@
-(define (domain depot_3_2_2_5_5_3-domain)
+(define (domain depots)
  (:requirements :strips :typing)
  (:types
     place locatable - object
