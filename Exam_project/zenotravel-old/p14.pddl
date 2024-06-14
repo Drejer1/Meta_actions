@@ -1,4 +1,4 @@
-(define (problem ZTRAVEL-5-11)
+(define (problem ZTRAVEL-17-24)
 (:domain zeno-travel)
 (:objects
 	plane1 - aircraft
@@ -6,6 +6,18 @@
 	plane3 - aircraft
 	plane4 - aircraft
 	plane5 - aircraft
+	plane6 - aircraft
+	plane7 - aircraft
+	plane8 - aircraft
+	plane9 - aircraft
+	plane10 - aircraft
+	plane11 - aircraft
+	plane12 - aircraft
+	plane13 - aircraft
+	plane14 - aircraft
+	plane15 - aircraft
+	plane16 - aircraft
+	plane17 - aircraft
 	person1 - person
 	person2 - person
 	person3 - person
@@ -17,11 +29,86 @@
 	person9 - person
 	person10 - person
 	person11 - person
+	person12 - person
+	person13 - person
+	person14 - person
+	person15 - person
+	person16 - person
+	person17 - person
+	person18 - person
+	person19 - person
+	person20 - person
+	person21 - person
+	person22 - person
+	person23 - person
+	person24 - person
 	city0 - city
 	city1 - city
 	city2 - city
 	city3 - city
 	city4 - city
+	city5 - city
+	city6 - city
+	city7 - city
+	city8 - city
+	city9 - city
+	city10 - city
+	city11 - city
+	city12 - city
+	city13 - city
+	city14 - city
+	city15 - city
+	city16 - city
+	city17 - city
+	city18 - city
+	city19 - city
+	city20 - city
+	city21 - city
+	city22 - city
+	city23 - city
+	city24 - city
+	city25 - city
+	city26 - city
+	city27 - city
+	city28 - city
+	city29 - city
+	city30 - city
+	city31 - city
+	city32 - city
+	city33 - city
+	city34 - city
+	city35 - city
+	city36 - city
+	city37 - city
+	city38 - city
+	city39 - city
+	city40 - city
+	city41 - city
+	city42 - city
+	city43 - city
+	city44 - city
+	city45 - city
+	city46 - city
+	city47 - city
+	city48 - city
+	city49 - city
+	city50 - city
+	city51 - city
+	city52 - city
+	city53 - city
+	city54 - city
+	city55 - city
+	city56 - city
+	city57 - city
+	city58 - city
+	city59 - city
+	city60 - city
+	city61 - city
+	city62 - city
+	city63 - city
+	city64 - city
+	city65 - city
+	city66 - city
 	fl0 - flevel
 	fl1 - flevel
 	fl2 - flevel
@@ -31,27 +118,64 @@
 	fl6 - flevel
 	)
 (:init
-	(ataircraft plane1 city3)
+	(at plane1 city19)
 	(fuel-level plane1 fl0)
-	(ataircraft plane2 city4)
+	(at plane2 city41)
 	(fuel-level plane2 fl0)
-	(ataircraft plane3 city0)
+	(at plane3 city6)
 	(fuel-level plane3 fl0)
-	(ataircraft plane4 city1)
+	(at plane4 city21)
 	(fuel-level plane4 fl0)
-	(ataircraft plane5 city0)
+	(at plane5 city22)
 	(fuel-level plane5 fl0)
-	(atperson person1 city3)
-	(atperson person2 city3)
-	(atperson person3 city2)
-	(atperson person4 city4)
-	(atperson person5 city0)
-	(atperson person6 city0)
-	(atperson person7 city4)
-	(atperson person8 city2)
-	(atperson person9 city3)
-	(atperson person10 city4)
-	(atperson person11 city0)
+	(at plane6 city17)
+	(fuel-level plane6 fl0)
+	(at plane7 city53)
+	(fuel-level plane7 fl0)
+	(at plane8 city5)
+	(fuel-level plane8 fl0)
+	(at plane9 city35)
+	(fuel-level plane9 fl0)
+	(at plane10 city22)
+	(fuel-level plane10 fl0)
+	(at plane11 city56)
+	(fuel-level plane11 fl0)
+	(at plane12 city61)
+	(fuel-level plane12 fl0)
+	(at plane13 city42)
+	(fuel-level plane13 fl0)
+	(at plane14 city22)
+	(fuel-level plane14 fl0)
+	(at plane15 city31)
+	(fuel-level plane15 fl0)
+	(at plane16 city23)
+	(fuel-level plane16 fl0)
+	(at plane17 city63)
+	(fuel-level plane17 fl0)
+	(at person1 city23)
+	(at person2 city56)
+	(at person3 city33)
+	(at person4 city56)
+	(at person5 city31)
+	(at person6 city23)
+	(at person7 city37)
+	(at person8 city7)
+	(at person9 city43)
+	(at person10 city7)
+	(at person11 city27)
+	(at person12 city2)
+	(at person13 city55)
+	(at person14 city14)
+	(at person15 city38)
+	(at person16 city14)
+	(at person17 city35)
+	(at person18 city51)
+	(at person19 city21)
+	(at person20 city43)
+	(at person21 city15)
+	(at person22 city43)
+	(at person23 city57)
+	(at person24 city31)
 	(next fl0 fl1)
 	(next fl1 fl2)
 	(next fl2 fl3)
@@ -60,18 +184,35 @@
 	(next fl5 fl6)
 )
 (:goal (and
-	(ataircraft plane2 city3)
-	(ataircraft plane3 city0)
-	(atperson person2 city2)
-	(atperson person3 city0)
-	(atperson person4 city2)
-	(atperson person5 city1)
-	(atperson person6 city4)
-	(atperson person7 city1)
-	(atperson person8 city1)
-	(atperson person9 city2)
-	(atperson person10 city2)
-	(atperson person11 city0)
+	(at plane1 city12)
+	(at plane2 city28)
+	(at plane4 city57)
+	(at plane10 city58)
+	(at plane14 city52)
+	(at person1 city55)
+	(at person2 city53)
+	(at person3 city26)
+	(at person4 city4)
+	(at person5 city42)
+	(at person6 city61)
+	(at person7 city65)
+	(at person8 city10)
+	(at person9 city21)
+	(at person10 city31)
+	(at person11 city54)
+	(at person12 city44)
+	(at person13 city10)
+	(at person14 city0)
+	(at person15 city32)
+	(at person16 city55)
+	(at person17 city26)
+	(at person18 city33)
+	(at person19 city10)
+	(at person20 city18)
+	(at person21 city45)
+	(at person22 city48)
+	(at person23 city36)
+	(at person24 city51)
 	))
 
 )

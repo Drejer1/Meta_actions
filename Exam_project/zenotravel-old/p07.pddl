@@ -1,9 +1,17 @@
-(define (problem ZTRAVEL-3-8)
+(define (problem ZTRAVEL-11-14)
 (:domain zeno-travel)
 (:objects
 	plane1 - aircraft
 	plane2 - aircraft
 	plane3 - aircraft
+	plane4 - aircraft
+	plane5 - aircraft
+	plane6 - aircraft
+	plane7 - aircraft
+	plane8 - aircraft
+	plane9 - aircraft
+	plane10 - aircraft
+	plane11 - aircraft
 	person1 - person
 	person2 - person
 	person3 - person
@@ -12,11 +20,52 @@
 	person6 - person
 	person7 - person
 	person8 - person
+	person9 - person
+	person10 - person
+	person11 - person
+	person12 - person
+	person13 - person
+	person14 - person
 	city0 - city
 	city1 - city
 	city2 - city
 	city3 - city
 	city4 - city
+	city5 - city
+	city6 - city
+	city7 - city
+	city8 - city
+	city9 - city
+	city10 - city
+	city11 - city
+	city12 - city
+	city13 - city
+	city14 - city
+	city15 - city
+	city16 - city
+	city17 - city
+	city18 - city
+	city19 - city
+	city20 - city
+	city21 - city
+	city22 - city
+	city23 - city
+	city24 - city
+	city25 - city
+	city26 - city
+	city27 - city
+	city28 - city
+	city29 - city
+	city30 - city
+	city31 - city
+	city32 - city
+	city33 - city
+	city34 - city
+	city35 - city
+	city36 - city
+	city37 - city
+	city38 - city
+	city39 - city
 	fl0 - flevel
 	fl1 - flevel
 	fl2 - flevel
@@ -26,20 +75,42 @@
 	fl6 - flevel
 	)
 (:init
-	(ataircraft plane1 city0)
+	(at plane1 city24)
 	(fuel-level plane1 fl0)
-	(ataircraft plane2 city3)
+	(at plane2 city24)
 	(fuel-level plane2 fl0)
-	(ataircraft plane3 city2)
+	(at plane3 city14)
 	(fuel-level plane3 fl0)
-	(atperson person1 city2)
-	(atperson person2 city1)
-	(atperson person3 city3)
-	(atperson person4 city1)
-	(atperson person5 city2)
-	(atperson person6 city3)
-	(atperson person7 city4)
-	(atperson person8 city0)
+	(at plane4 city21)
+	(fuel-level plane4 fl0)
+	(at plane5 city4)
+	(fuel-level plane5 fl0)
+	(at plane6 city15)
+	(fuel-level plane6 fl0)
+	(at plane7 city7)
+	(fuel-level plane7 fl0)
+	(at plane8 city39)
+	(fuel-level plane8 fl0)
+	(at plane9 city39)
+	(fuel-level plane9 fl0)
+	(at plane10 city0)
+	(fuel-level plane10 fl0)
+	(at plane11 city26)
+	(fuel-level plane11 fl0)
+	(at person1 city8)
+	(at person2 city21)
+	(at person3 city38)
+	(at person4 city38)
+	(at person5 city29)
+	(at person6 city26)
+	(at person7 city22)
+	(at person8 city39)
+	(at person9 city22)
+	(at person10 city27)
+	(at person11 city20)
+	(at person12 city36)
+	(at person13 city9)
+	(at person14 city4)
 	(next fl0 fl1)
 	(next fl1 fl2)
 	(next fl2 fl3)
@@ -48,14 +119,21 @@
 	(next fl5 fl6)
 )
 (:goal (and
-	(atperson person1 city1)
-	(atperson person2 city2)
-	(atperson person3 city1)
-	(atperson person4 city2)
-	(atperson person5 city1)
-	(atperson person6 city1)
-	(atperson person7 city2)
-	(atperson person8 city1)
+	(at plane11 city17)
+	(at person1 city38)
+	(at person2 city38)
+	(at person3 city5)
+	(at person4 city10)
+	(at person5 city19)
+	(at person6 city38)
+	(at person7 city14)
+	(at person8 city13)
+	(at person9 city29)
+	(at person10 city27)
+	(at person11 city36)
+	(at person12 city17)
+	(at person13 city15)
+	(at person14 city14)
 	))
 
 )
